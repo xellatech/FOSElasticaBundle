@@ -63,12 +63,7 @@ class Client extends BaseClient
         return $response;
     }
 
-    /**
-     * @param string $name
-     *
-     * @return Index|mixed
-     */
-    public function getIndex(string $name)
+    public function getIndex(string $name): Index
     {
         if (isset($this->indexCache[$name])) {
             return $this->indexCache[$name];
