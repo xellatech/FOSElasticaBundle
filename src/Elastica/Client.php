@@ -15,6 +15,7 @@ use Elastica\Client as BaseClient;
 use Elastica\Request;
 use FOS\ElasticaBundle\Logger\ElasticaLogger;
 use Symfony\Component\Stopwatch\Stopwatch;
+use Elastica\Response;
 
 /**
  * Extends the default Elastica client to provide logging for errors that occur
@@ -41,7 +42,7 @@ class Client extends BaseClient
     /**
      * {@inheritdoc}
      */
-    public function request($path, $method = Request::GET, $data = [], array $query = [], $contentType = Request::DEFAULT_CONTENT_TYPE)
+    public function request(string $path, string $method = Request::GET, $data = [], array $query = [], string $contentType = Request::DEFAULT_CONTENT_TYPE): Response
     {
         if ($this->stopwatch) {
             $this->stopwatch->start('es_request', 'fos_elastica');
