@@ -53,9 +53,9 @@ final class RegisterPagerPersistersPass implements CompilerPassInterface
                     $this->assertClassImplementsPagerPersisterInterface($id, $container->getParameterBag()->resolveValue($persisterDef->getClass()));
                 }
 
-                if (!$persisterDef->isPublic()) {
-                    throw new \InvalidArgumentException(sprintf('Elastica pager persister "%s" must be a public service', $id));
-                }
+//                if (!$persisterDef->isPublic()) {
+//                    throw new \InvalidArgumentException(sprintf('Elastica pager persister "%s" must be a public service', $id));
+//                }
 
                 $nameToServiceIdMap[$persisterName] = $id;
             }
